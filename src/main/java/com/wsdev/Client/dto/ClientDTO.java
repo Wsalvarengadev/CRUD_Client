@@ -1,15 +1,19 @@
 package com.wsdev.Client.dto;
 
 import com.wsdev.Client.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Data nao pode ser superior ao dia de hoje")
     private LocalDate birthDate;
     private Integer children;
 
